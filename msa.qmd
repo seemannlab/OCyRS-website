@@ -1,24 +1,16 @@
 ---
-title: "Alignments"
+title: "CRS alignments"
 ---
 
 ```{r}
 # Prepare data for filtering
 library(tidyverse)
 
-redundant <-
-  'data/L_redundant.tsv' |>
-  read_tsv() |>
-  select(motif = redundant) |>
-  unique()
-
 motif <-
   'data/potentially-novel-motifs.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 
-motif %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
+motif |>
   pull(motif) %>%
   unique %>%
   sort -> motifs_list
@@ -64,13 +56,32 @@ viewof sel = Inputs.select(
   }
 )
 
-html`Download alignment as <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs/${sel}.sto">Stockholm</a> | <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs-fasta/${sel}.fasta">Fasta</a> | <a href="https://rth.dk/resources/crs/cyanobacteria/data/jalview/${sel}.svg">Figure</a>`
-
 html`<a href="https://rth.dk/resources/crs/cyanobacteria/candidate.html?candidate=${sel}">View CRS details</a>`
+```
+
+## Post-processed alignment
+
+```{ojs}
+html`Download alignment as <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs/${sel}.sto">Stockholm</a> | <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs-fasta/${sel}.fasta">Fasta</a> | <a
+href="https://rth.dk/resources/crs/cyanobacteria/data/cm/${sel}.cm">Covariance model</a> | <a href="https://rth.dk/resources/crs/cyanobacteria/data/jalview/${sel}.svg">Figure</a>`
 ```
 
 ```{ojs}
 html`<center><img src="https://rth.dk/resources/crs/cyanobacteria/data/jalview/${sel}.svg" class = 'jalview'/></center>`
+```
+
+## Filtered alignment
+
+- all sequences were removed that have a nucleotide in an alignment column with more than 95% of gaps
+- sort sequences based on their Hamming distance to the most central sequence (based on total Hamming distance)
+
+```{ojs}
+html`Download alignment as <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs-gapfree/${sel}.sto">Stockholm</a> | <a href="https://rth.dk/resources/crs/cyanobacteria/data/motifs-fasta-gapfree/${sel}.fasta">Fasta</a> | <a
+href="https://rth.dk/resources/crs/cyanobacteria/data/jalview-gapfree/${sel}.svg">Figure</a>`
+```
+
+```{ojs}
+html`<center><img src="https://rth.dk/resources/crs/cyanobacteria/data/jalview-gapfree/${sel}.svg" class = 'jalview'/></center>`
 ```
 
 Visualization made with [Jalview](https://www.jalview.org/).

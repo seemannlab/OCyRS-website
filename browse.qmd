@@ -8,39 +8,25 @@ title: "Browse CRSs"
 # Prepare data for filtering
 library(tidyverse)
 
-redundant <-
-  'data/L_redundant.tsv' |>
-  read_tsv() |>
-  select(motif = redundant) |>
-  unique()
-
-  
-
 motif <-
   'data/potentially-novel-motifs.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.path <-
   'data/K_motif-path.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.tax <-
   'data/K_motif-tax.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.tax.pos <- 
   'data/K_motif-tax-pos.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 fdr <- 
   'data/I_fdr.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 
 expressed <-
   'data/5-maybe-interest.tsv' |>
   read_tsv() |>
-  anti_join(redundant, c('gene' = 'motif')) |>
   select(motif = gene, expressed.in.genomes)
 
 motif.path %>%
@@ -64,7 +50,7 @@ motif.path %>%
     Term = term,
     Ortholog = ortholog,
     Candidate = motif,
-    'Knwon structures in search region' = ifelse(
+    'Known structures in search region' = ifelse(
       search.region == 'has CMsearch ref',
       'yes',
       'no'
@@ -81,8 +67,7 @@ motif.path %>%
     'Average sequence identity (%)' = `Avgerage SI %`,
     'Alignment power (%)' = `Alignment power %`,
     'Covarying bps (%)' = `Covarying bps %`
-  ) %>%
-  mutate_at('Candidate', str_remove, '\\.fna\\.motif') |>
+  ) |>
   mutate_if(is.double, round, 2) -> motifs
 
 ojs_define(motifs = motifs)
@@ -98,8 +83,7 @@ ojs_define(pathways = c(
 ))
 
 motif.path %>%
-  select(motif, pathway) %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
+  select(motif, pathway) |>
   drop_na() %>%
   unique -> motifs_paths
 
@@ -123,8 +107,7 @@ tax.nice %>%
 # match motifs to taxrow
 tax.nice %>%
   left_join(taxes, c('order', 'family', 'genus', 'species')) %>%
-  select(motif, taxrow) |>
-  mutate_at('motif', str_remove, '\\.fna\\.motif')  -> motif_taxes
+  select(motif, taxrow) -> motif_taxes
 
 ojs_define(taxes = taxes)
 ojs_define(motif_taxes = motif_taxes)
@@ -139,9 +122,8 @@ taxes_tbl = transpose(taxes)
 motif_taxes_tbl = transpose(motif_taxes)
 ```
 
-::: columns
-:::{.column width='30%'}
-
+::::: columns
+::: {.column width="30%"}
 ```{ojs}
 
 // build an HTML label that displays the helper info
@@ -159,7 +141,7 @@ infoHelper = function(x, lab, txt) {
 }
 
 
-// Build the filteirng form
+// Build the filtering form
 viewof filters = Inputs.form({
   cat: Inputs.checkbox(
     categories,
@@ -213,11 +195,9 @@ viewof filters = Inputs.form({
   }),
 })
 ```
-
 :::
 
-:::{.column width='70%'}
-
+::: {.column width="70%"}
 ```{ojs}
 viewof tax_search = Inputs.search(taxes_tbl, {
   label: infoHelper(
@@ -239,13 +219,10 @@ no_tax_total = Array.from(taxes_tbl).length
 
 ```
 
-- You can filter either via the search box or select individual species with the checkbox to the left of each row
-- The current phylogenetic filtering is set to 
-  \${no_tax_filtered} of \${no_tax_total} species.
-
-::: 
+-   You can filter either via the search box or select individual species with the checkbox to the left of each row
+-   The current phylogenetic filtering is set to \${no_tax_filtered} of \${no_tax_total} species.
 :::
-
+:::::
 
 ```{ojs}
 // helper to filter pathways to make filtering of motifs easier
@@ -338,9 +315,6 @@ Inputs.table(filtered_search, {
 })
 ```
 
-- This table is scrollable
-- Clicking on the column name in the headers allows sorting the rows by each score
-- The columns "Transcribed" referes to the number of genomes in which the
-  candidate was detected to be transcriptionally active
-
-
+-   This table is scrollable
+-   Clicking on the column name in the headers allows sorting the rows by each score
+-   The columns "Transcribed" referes to the number of genomes in which the candidate was detected to be transcriptionally active

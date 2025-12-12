@@ -16,6 +16,7 @@ website:
       - browse.qmd
       - candidate.qmd
       - msa.qmd
+      - cons_og.qmd
       - cmsearch.qmd
       - href: help.qmd
         text: Help

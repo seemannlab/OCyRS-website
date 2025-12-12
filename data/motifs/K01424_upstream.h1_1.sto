@@ -1,0 +1,72 @@
+# STOCKHOLM 1.0
+#=GF SQ 34
+#=GS 373994.SAMN02232049.Riv7116_2683  AC 373994.SAMN02232049.Riv7116_2683
+#=GS 221288.SAMN02261251.GCA_000315565_03170  AC 221288.SAMN02261251.GCA_000315565_03170
+#=GS 1233231.SAMN03274355.SD80_23010  AC 1233231.SAMN03274355.SD80_23010
+#=GS 1137095.SAMN05890690.NIES2130_11560  AC 1137095.SAMN05890690.NIES2130_11560
+#=GS 128403.SAMN02469880.WA1_12295  AC 128403.SAMN02469880.WA1_12295
+#=GS 1479485.SAMN02697214.DA73_0216790  AC 1479485.SAMN02697214.DA73_0216790
+#=GS 1337936.SAMN02909965.IJ00_24745  AC 1337936.SAMN02909965.IJ00_24745
+#=GS 1173023.SAMN02441755.GCA_000447295_04362  AC 1173023.SAMN02441755.GCA_000447295_04362
+#=GS 1752063.SAMD00042785.FIS3754_09680  AC 1752063.SAMD00042785.FIS3754_09680
+#=GS 306281.SAMN02469884.GCA_000317205_02744  AC 306281.SAMN02469884.GCA_000317205_02744
+#=GS 211165.SAMN02469883.GCA_000317285_00925  AC 211165.SAMN02469883.GCA_000317285_00925
+#=GS 643473.SAMN02261254.GCA_000332295_02540  AC 643473.SAMN02261254.GCA_000332295_02540
+#=GS 99598.SAMN02261328.Cal7507_3550  AC 99598.SAMN02261328.Cal7507_3550
+#=GS 224013.SAMN03796038.ACX27_14375  AC 224013.SAMN03796038.ACX27_14375
+#=GS 317936.SAMN02261332.Nos7107_3443  AC 317936.SAMN02261332.Nos7107_3443
+#=GS 313624.SAMN01915661.NSP_32340  AC 313624.SAMN01915661.NSP_32340
+#=GS 56107.SAMN02261342.Cylst_2992  AC 56107.SAMN02261342.Cylst_2992
+#=GS 63737.SAMN02598449.Npun_R4339  AC 63737.SAMN02598449.Npun_R4339
+#=GS 103690.SAMD00061094.gene_10496219  AC 103690.SAMD00061094.gene_10496219
+#=GS 240292.SAMN02598253.Ava_0733  AC 240292.SAMN02598253.Ava_0733
+#=GS 1751286.SAMD00042755.NOS3756_12140  AC 1751286.SAMD00042755.NOS3756_12140
+#=GS 28072.SAMN02261333.Nos7524_4986  AC 28072.SAMN02261333.Nos7524_4986
+#=GS 52271.SAMN04536551.GCA_001597855_00709  AC 52271.SAMN04536551.GCA_001597855_00709
+#=GS 1469607.SAMN00203911.GCA_000582685_04832  AC 1469607.SAMN00203911.GCA_000582685_04832
+#=GS 46234.SAMN02604187.ANA_C12776  AC 46234.SAMN02604187.ANA_C12776
+#=GS 551115.SAMN02598476.Aazo_2513  AC 551115.SAMN02598476.Aazo_2513
+#=GS 163908.SAMN02261341.GCA_000332135_04274  AC 163908.SAMN02261341.GCA_000332135_04274
+#=GS 1853259.SAMN05208169.GCA_001858025_05007  AC 1853259.SAMN05208169.GCA_001858025_05007
+#=GS 272123.SAMN02232008.Anacy_4044  AC 272123.SAMN02232008.Anacy_4044
+#=GS 1188.SAMN03450030.FDUTEX481_06914  AC 1188.SAMN03450030.FDUTEX481_06914
+#=GS 402777.SAMN02261340.GCA_000332155_02983  AC 402777.SAMN02261340.GCA_000332155_02983
+#=GS 1173020.SAMN02261345.Cha6605_5076  AC 1173020.SAMN02261345.Cha6605_5076
+#=GS 1751286.SAMD00042755.NOS3756_19450  AC 1751286.SAMD00042755.NOS3756_19450
+#=GS 1173026.SAMN02261347.Glo7428_4152  AC 1173026.SAMN02261347.Glo7428_4152
+373994.SAMN02232049.Riv7116_2683   AGUUAUGAGUUAAUAG-----GUAAU--A------------------------------------------------------------------------------------------------------------------------------AC-UCAUAACUCAUAACU
+221288.SAMN02261251.GCA_000315565_03170   CGUCCUUAGUCAUUUG-----C-ACA--AGACUAAGAACcuucugguaagcgcucccgcacgcccuacaacguucgcguagc-------gcuuacgucagccgugacaguuggaaaccaacuuggcugcgcuGGCUCACAAAUG-----------AC-UAAGGACAAAGGACA
+1233231.SAMN03274355.SD80_23010   GGUCAUGAGUCAUUUG-----UUAUU-u-------------------------------------------------------------------------------------------------------------GCAAAAG-----------AC-UAAAGACAAUAGACA
+1137095.SAMN05890690.NIES2130_11560   AGUUAGGAGUUAGAAG-----UUAAU-aAGUUGUA------------------------------------------------------------------------------------------------------ACUCCUA-----------AC-UCAUAACUCAUAACU
+128403.SAMN02469880.WA1_12295   AGUCAUUAGUCAUUUG-----UCAUU--CGUCCUUUGUAaaaaauuaaaacc------------------------------------------------------------------uaaggacuaaugacCAAUGACCAAUG-----------AC-UAAUGACUAAUGACA
+1479485.SAMN02697214.DA73_0216790   AGUCAUUGGUCAUUUG-----UCAUU--GGUCAUU-----------------------------------------------------------------------------------------------------UGCACAAA-----------AC-AAAUGACCAAUGACC
+1337936.SAMN02909965.IJ00_24745   UGUCAAUGGUCAAUAG-----UCACU--AGAAACGGUCGccugucagc---------------------------------------------------------------------------ccagguaacUACUCAAAAUUA-----------GC-UAUUGACAACUGACU
+1173023.SAMN02441755.GCA_000447295_04362   AGUCAAUUGUCAAGGG-----UCAAU--AGUCAAUGAUCaaauuauuucuau------------------------------------------------------------------uauugaucauugacUAUGGACAAUUG-----------AC-UAAUGACUAAUGACU
+1752063.SAMD00042785.FIS3754_09680   AGUCAUUGGUUGGUGG-----UUGAU--AGUUGCUAGUUguua-------------------------------------------------------------------------------------gaaaAAACAACACACA-----------AC-AAACAACUACCAACA
+306281.SAMN02469884.GCA_000317205_02744   AGUUGCUAGUUGGUGG-----UUGUU--A-UAACAAACAa-------------------------------------------------------------------------------------------cAAACAACAAACA-----------AC-AAACAACAAACAACU
+211165.SAMN02469883.GCA_000317285_00925   AGUCAUUGGUUAAUGG-----UUAGU--AGUUAGUAGGUaguggcuaguaguug---------------------------------------------------------------guaauuauuccuaacAACUAACAACUA-----------AC-AAGCAACAACUAACA
+643473.SAMN02261254.GCA_000332295_02540   AGUCAUUAGUUAUUAG-----UCACA--AUCCAUG------------------------------------------------------------------------------------------------------ACAAAAA-----------AC-UCAUGACUAAUGACA
+99598.SAMN02261328.Cal7507_3550   AGUCAUUGGUCAUUGG-----UCAUU--GGUUAUUAAUAaaa--------------------------------------------------------------------------------------aaacAAAUGACAAAGG-----------AC-AGGUGACAAAUGACA
+224013.SAMN03796038.ACX27_14375   --UCAAAAGUCCAUAG-----UCAUA-aAGUCUCAAAUUag-----------------------------------------------------------------------------------------ccUUUUGACCAUUG-----------AU-GAUUGACCAUUGA--
+317936.SAMN02261332.Nos7107_3443   GGUCAUUAGUCCUUGG-----UCAAG--AGUAAAA-----------------------------------------------------------------------------------------------------AACAAAUG-----------GCaUAGUGACAAAUAAUA
+313624.SAMN01915661.NSP_32340   --UCAUUGGUGUUUAG-----UAAUC--A----------------------------------------------------------------------------------------------------------------ACG-----------AC-UAAUCACCAAUCA--
+56107.SAMN02261342.Cylst_2992   AGUCAUUGGUCAGUAGgg-ggUUACC-cAGUCCUUACAGugauccgcgcu-----------------------------------------------------------------------uaagaaaaaacAACUGACAACUG-----------GC-AACUGACAACUGACA
+63737.SAMN02598449.Npun_R4339   AGUCAUUGGUCAUUAG-----UCAUU--AGUCAUUAGCU----------------------------------------------------------------------------------------------AAGGACUAAUU-----------AC-CAAUGACCAAUGACU
+103690.SAMD00061094.gene_10496219   CGUCAUGAGUCAGUAG-----UCAGU--A---------------------------------------------------------------------------------------------------------------AGCA-----------AC-UGACGACUUACAACU
+240292.SAMN02598253.Ava_0733   AGUCAUGAGUCAGUAG-----UCAGU--A---------------------------------------------------------------------------------------------------------------AUCA-----------AC-UGACGACUCACAACU
+1751286.SAMD00042755.NOS3756_12140   AGUCAACAGUCAAUAG-----UCAAC--AGUCAAUCAAC---------------------------------------------------------------------------------------------UAUGGGCUAUAG-----------AC-UGUUGACUAUUGACU
+28072.SAMN02261333.Nos7524_4986   ACUCAUUAGUCAUUAG-----CUAAU-cACUAAUA------------------------------------------------------------------------------------------------------ACUAAUG-----------AU-CAAUGACUAAUAACU
+52271.SAMN04536551.GCA_001597855_00709   AGUCAGGAGUCAUUAG-----UCACA--AGCUCAU-----------------------------------------------------------------------------------------------------GACUCCUG-----------AC-UAAUAACUCAUAACU
+1469607.SAMN00203911.GCA_000582685_04832   AGUCUUCAGUCAACGG-----UCAAU-cAACUCUUGACUaug--------------------------------------------------------------------------------------gaauGUGUGACUCUGG-----------AU-UUUUGACAAAGGACA
+46234.SAMN02604187.ANA_C12776   AGUCAUUGGUCAUUAG-----UCAUU--AGUAAAACA------------------------------------------------------------------------------------------------ACCAACCACUG-----------AC-AACUGACAACUGACA
+551115.SAMN02598476.Aazo_2513   AGUCAUAAGUUAUUAG-----UCAUU--AAUGUUACACAa-------------------------------------------------------------------------------------------cUAACAAUUGAUA-----------AC-UGACAACUGACGACU
+163908.SAMN02261341.GCA_000332135_04274   AGUUAGUCAUCAGUAG-----UAA-A---------------------------------------------------------------------------------------------------------------------------------AC-AAUUGAUCACUAACA
+1853259.SAMN05208169.GCA_001858025_05007   AGUCAUUAGUCAUUGG-----UCAUU--AGUGUUACACAa-------------------------------------------------------------------------------------------cUGACGACUGACG-----------AC-UGACGACUGACGACU
+272123.SAMN02232008.Anacy_4044   AGUCAUUAGUCAUUAG-----UCAUU--AGUCAUUAGGAacucuuaacagcgaauaggggagaa-------------------------------------------uagacuacugucuauugccuauugcC-----------uuuucccucugAC-AAUUGACAACUGACA
+1188.SAMN03450030.FDUTEX481_06914   AGUCAUUAGUCACUAG-----UCAUG--AGUUUUAAC-----------------------------------------------------------------------------------------------AAAUGACAUAGG-----------AC-AAAUGACAAAUAACA
+402777.SAMN02261340.GCA_000332155_02983   AGUUAGUAGUUAGUAG-----UUAGU-uAGUUGUAUGGUgggcgaucgccuaccauaaucuacagcuaauuuacaagcauuuuugcagcgaucgcucacucgauguuuagcuaacaaauaacaauagcuaacAACUAACAAUUA-----------AC-AACCAACAACUAACA
+1173020.SAMN02261345.Cha6605_5076   GAUUGAUAAUUACAGG-----UUAUC--A------------------------------------------------------------------------------------------------------------AUUAUCA-----------AU-UAUCAAUUAUCAAUU
+1751286.SAMD00042755.NOS3756_19450   AGUCCUGAGUUAUGAG-----UAA-A---------------------------------------------------------------------------------------------------------------------------------AC-UACUAACUCAGCACU
+1173026.SAMN02261347.Glo7428_4152   GGUAAUGGGUAAUAGG-----UCGUAaaAGCAUUU------------------------------------------------------------------------------------------------------AUCAAUU-----------AC-CAUUUACCAAUUACC
+#=GC SS_cons   :<<<<<--<<<<---<.....<____..___________.............................................................................................____________~~~~~~~~~~~>>.--->>>>-->>>>>:
+//

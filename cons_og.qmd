@@ -1,0 +1,250 @@
+---
+title: "Species conservation"
+---
+
+```{r}
+# Prepare data for filtering
+library(tidyverse)
+
+motif <-
+  #'data/potentially-novel-motifs.tsv' |>
+  'data/K2_motifs.tsv' |>
+  read_tsv()
+motif.tax <-
+  'data/K_motif-tax.tsv' |>
+  read_tsv()
+```
+
+```{r}
+# Motif list
+motif %>%
+  pull(motif) %>%
+  unique %>%
+  sort -> motifs_list
+
+ojs_define(motifs_list = motifs_list)
+
+# Prepare overview table for phylogenetic distribution
+motif.tax %>%
+  select(order) %>%
+  unique %>%
+  mutate_at('order', str_replace, '^([0-9]+) (.*)$', '\\2 (NCBI:txid\\1)') %>%
+  mutate_at('order', replace_na, 'unknown') %>%
+  arrange(order) %>%
+  mutate(fill = RColorBrewer::brewer.pal(n(), 'Paired')) -> taxa.cl
+
+# drafting ideas for new plot
+full_join(
+  motif.tax %>%
+    select(order, species) %>%
+    unique %>%
+    count(order, name = 'studied.species'),
+  motif.tax %>%
+    select(motif, order, species) %>%
+    unique %>%
+    count(motif, order, name = 'species.with.motif'),
+  'order'
+) %>%
+  mutate(
+    ratio = species.with.motif / studied.species * 100,
+    lab = sprintf('%g of %g species', species.with.motif,
+                  studied.species)
+  ) %>%
+  mutate_at('order', str_replace, '^([0-9]+) (.*)$', '\\2 (NCBI:txid\\1)') %>%
+  mutate_at('order', replace_na, 'unknown') %>%
+  select(motif, order, ratio, lab) %>%
+  complete(motif, order) %>%
+  mutate_at('ratio', replace_na, 0) %>%
+  mutate_at('lab', replace_na, '') %>%
+  left_join(taxa.cl, 'order') -> phylo
+
+ojs_define(phylo = phylo)
+```
+
+```{r}
+# prepare data for OG prevalence
+motif.tax.order <-
+  'data/B_OGs.tsv' |>
+  read_tsv() |>
+  left_join(
+    motif.tax |>
+      select(tax.bio, order) |>
+      distinct(),
+    'tax.bio'
+  )
+
+motif_order_prev <- 
+  motif.tax.order |>
+  select(term, tax.bio, order) |>
+  distinct() |>
+  count(term, order, name = 'OG_order') |>
+  left_join(
+    motif.tax.order |>
+      select(tax.bio, order) |>
+      distinct() |>
+      count(order, name = 'genomes_order'),
+    'order'
+  ) |>
+  mutate(prev_pct = OG_order / genomes_order * 100) |>
+  mutate(
+    lab = sprintf('%g of %g species', OG_order, genomes_order)
+  ) |>
+  mutate_at('order', str_replace, '^([0-9]+) (.*)$', '\\2 (NCBI:txid\\1)') %>%
+  mutate_at('order', replace_na, 'unknown') %>%
+  select(term, order, ratio = prev_pct, lab) %>%
+  complete(term, order) |>
+  mutate_at('ratio', replace_na, 0) |>
+  mutate_at('lab', replace_na, '') |>
+  left_join(taxa.cl, 'order')
+
+ojs_define(motif_order_prev = motif_order_prev)
+```
+
+```{ojs}
+//Allow ojs to access data row-wise
+phylo_tbl = transpose(phylo)
+motif_order_prev_tbl = transpose(motif_order_prev)
+```
+
+```{ojs}
+//Check GET variable `candidate` for what motif to choose, otherwise default to first one
+para = window.location.href.match(/(?<=candidate=)(.*?)[^&]+/)
+sv = {
+  if ( para !== null ) {
+    if ( motifs_list.includes(para[0]) ) {
+      return para[0]
+    }
+  }
+  return motifs_list[0] 
+}
+
+// Choose a single motif
+viewof sel = Inputs.select(
+  motifs_list,
+  {
+    label: 'Details for',
+    value: sv
+  }
+)
+
+html`<a href="https://rth.dk/resources/crs/cyanobacteria/candidate.html?candidate=${sel}">View CRS details</a>`
+```
+
+::::: columns
+::: column
+## CRS anchoring orthologous gene
+
+```{ojs}
+motif_order_prev_filtered = motif_order_prev_tbl.filter(function(row) {
+  var regex = new RegExp("^" + row.term + "_");
+  return regex.test(sel)
+})
+
+Plot.plot({
+  marginLeft: 500,
+  marginBottom: 70,
+  marginTop: 50,
+  height: 600,
+  width: 1000,
+  style: {
+    'font-size': '18pt',
+    'color': 'black',
+    'text-shadow': '1pt 1pt 8pt white'
+  },
+  x: {
+    label: 'Studied species containing the ortholog (%)',
+    grid: true
+  },
+  y: {
+    label: 'Phylogenetic order:',
+    labelAnchor: 'top'
+  },
+  marks: [
+    Plot.barX(
+      motif_order_prev_filtered,
+      {
+        x: 'ratio',
+        y: 'order',
+        fill: 'fill'
+      }
+    ),
+    Plot.text(
+      motif_order_prev_filtered,
+      {
+        x: 5,
+        y: 'order',
+        rotate: 0,
+        textAnchor: 'start',
+        text: 'lab',
+        fontSize: '16pt',
+        fontWeight: 'bolder'
+      }
+    )
+  ]
+})
+```
+
+(Relative to the NCBI taxonomy)
+
+```{ojs}
+// get KEGG orthologous gene name
+ko = sel.split("_")[0]
+html `<a href="https://rth.dk/resources/crs/cyanobacteria/data/ko_phylo/${ko}.bootstrap-consensus.tree">Local phylogenetic tree of the anchoring orthologous gene</a>`
+```
+:::
+
+::: column
+## CRS
+
+```{ojs}
+phylo_filtered = phylo_tbl.filter(function(row) {
+  return row.motif === sel
+})
+
+Plot.plot({
+  marginLeft: 500,
+  marginBottom: 70,
+  marginTop: 50,
+  height: 600,
+  width: 1000,
+  style: {
+    'font-size': '18pt',
+    'color': 'black',
+    'text-shadow': '1pt 1pt 8pt white'
+  },
+  x: {
+    label: 'Studied species containing the CRS (%)',
+    grid: true
+  },
+  y: {
+    label: 'Phylogenetic order:',
+    labelAnchor: 'top'
+  },
+  marks: [
+    Plot.barX(
+      phylo_filtered,
+      {
+        x: 'ratio',
+        y: 'order',
+        fill: 'fill'
+      }
+    ),
+    Plot.text(
+      phylo_filtered,
+      {
+        x: 2,
+        y: 'order',
+        rotate: 0,
+        textAnchor: 'start',
+        text: 'lab',
+        fontSize: '16pt',
+        fontWeight: 'bolder'
+      }
+    )
+  ]
+})
+```
+
+(Relative to the NCBI taxonomy)
+:::
+:::::

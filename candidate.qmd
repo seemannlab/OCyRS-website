@@ -6,39 +6,27 @@ title: "CRS details"
 # Prepare data for filtering
 library(tidyverse)
 
-redundant <-
-  'data/L_redundant.tsv' |>
-  read_tsv() |>
-  select(motif = redundant) |>
-  unique()
-
 motif <-
   #'data/potentially-novel-motifs.tsv' |>
   'data/K2_motifs.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.path <-
   'data/K_motif-path.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.tax <-
   'data/K_motif-tax.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 motif.tax.pos <- 
   'data/K_motif-tax-pos.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 fdr <- 
   'data/I_fdr.tsv' |>
-  read_tsv() |>
-  anti_join(redundant, 'motif')
+  read_tsv()
 
 
 expressed <-
   'data/5-maybe-interest.tsv' |>
   read_tsv() |>
-  anti_join(redundant, c('gene' = 'motif')) |>
   select(motif = gene, expressed.in.genomes)
 
 motif.path %>%
@@ -56,36 +44,32 @@ motif.path %>%
   left_join(expressed, 'motif') |>
   mutate_at('expressed.in.genomes', replace_na, 0) |>
   transmute(
-    'Candidate ID' = motif,
-    'Ortholog ID' = term,
-    'Ortholog Name' = ortholog,
+    'CRS ID' = motif,
+    'CRS anchoring orthologous gene ID' = term,
+    'CRS anchoring orthologous gene name' = ortholog,
     'Relative position' = side,
-    'Candidate category' = category,
-    #
-    'Candidate length' = alignment.len,
+    'CRS category' = category,
+    'CRS length' = alignment.len,
     'No. sequences' = no.seq,
     'No. species' = no.species,
     'Average sequence identity, %' = `Avgerage SI %`,
     'GC content %' = GC * 100,
-    #
     "No. base-pairs" = no.bps,
-    'Proportion base-paired alignment positions, %' = `Paired positions %`,
-    #
-    FDR = RNAphylo.fdr,
+    'Proportion basepaired alignment positions, %' = `Paired positions %`,
+    'FDR' = RNAphylo.fdr,
     'Transcriptionally active genomes' = expressed.in.genomes,
     'RNAphylo score (CMfinder)' = `RNAphylo`,
     'Hmmpair score (CMfinder)' = `hmmpair`,
-    #
+    'Expected covarying basepairs (R-scape)' = `expected.covary`,
     'Alignment power % (R-Scape)' = `Alignment power %`,
-    'Covarying base-pairs % (R-Scape)' = `Covarying bps %`
-  ) %>%
-  mutate_at('Candidate ID', str_remove, '\\.fna\\.motif') |>
+    'Observed covarying basepairs (R-scape)' = `observed.covary`,
+    'Covarying basepairs % (R-Scape)' = `Covarying bps %`
+  ) |>
   mutate_if(is.double, round, 2) -> motifs
 
 ojs_define(motifs = motifs)
 
 motif %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
   pull(motif) %>%
   unique %>%
   sort -> motifs_list
@@ -94,7 +78,6 @@ ojs_define(motifs_list = motifs_list)
 
 motif.path %>%
   select(motif, 'KEGG ID' = path, Title = pathway) %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
   drop_na() %>%
   unique -> motifs_paths
 
@@ -110,13 +93,10 @@ motif.tax.pos %>%
     '^([0-9]+) (.*)$',
     '\\2 (NCBI:txid\\1)'
   ) %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
   arrange(motif, species, `NCBI-accession`, start) -> pos
 
 ojs_define(pos = pos)
 ```
-
-
 
 ```{r}
 # Prepare overview table for phylogenetic distribution
@@ -160,7 +140,6 @@ full_join(
   complete(motif, order) %>%
   mutate_at('ratio', replace_na, 0) %>%
   mutate_at('lab', replace_na, '') %>%
-  mutate_at('motif', str_remove, '\\.fna\\.motif') |>
   left_join(taxa.cl, 'order') -> phylo
 
 ojs_define(phylo = phylo)
@@ -171,11 +150,10 @@ ojs_define(phylo = phylo)
 'data/5-expression-ratios.tsv' |>
   read_tsv() |>
   # only on motifs
-  filter(str_detect(gene, 'fna.motif')) |>
+  filter(str_detect(gene, 'stream')) |>
   mutate(
     motif = str_remove(gene, ';pos.*$')
   ) |>
-  anti_join(redundant, 'motif') |>
   # focus on homolog with the strongest expression signal
   group_by(motif, genome) |>
   slice_max(ratio, with_ties = FALSE) |>
@@ -206,16 +184,14 @@ crossing(motif = motif$motif, genome = genome.cl$genome) |>
   mutate_at('ratio', replace_na, 0) |>
   mutate_at('lab', replace_na, '') |>
   arrange(motif, genome) |>
-  left_join(genome.cl, 'genome') |>
-  mutate_at('motif', str_remove, '\\.fna\\.motif')  -> expr.dat
+  left_join(genome.cl, 'genome') -> expr.dat
 
   
 ojs_define(expr = expr.dat)
 ```
 
-
 ```{ojs}
-// Allow ojs to access data row-wise
+//Allow ojs to access data row-wise
 motifs_tbl = transpose(motifs)
 motifs_paths_tbl = transpose(motifs_paths)
 pos_tbl = transpose(pos)
@@ -250,7 +226,7 @@ viewof sel = Inputs.select(
 html`<a href="https://rth.dk/resources/crs/cyanobacteria/msa.html?candidate=${sel}">View alignment</a>`
 
 motifs_filtered = motifs_tbl.filter(function(row) {
-  return row["Candidate ID"] === sel
+  return row["CRS ID"] === sel
 })
 
 // Sort of transpose for improved overview
@@ -258,9 +234,9 @@ record = Object.keys(motifs_filtered[0]).
   map(x => new Object({key: x, value:  motifs_filtered[0][x]}))
 ```
 
-## Candidate characteristics and score
+## Characteristics and scores
 
-::: columns
+::::: columns
 ::: column
 ```{ojs}
 Inputs.table(record, {
@@ -284,9 +260,9 @@ Inputs.table(record, {
 html`<center><img src="https://rth.dk/resources/crs/cyanobacteria//data/R2R/${sel}.svg" class = 'r2r'/></center>`
 ```
 :::
-:::
+:::::
 
-::: columns
+::::: columns
 ::: column
 ## Associated pathways
 
@@ -307,8 +283,12 @@ Inputs.table(
   }
 )
 ```
+:::
+:::::
 
-## Predicted occurences
+::::: columns
+::: column
+## Genomic loci
 
 ```{ojs}
 pos_filtered = pos_tbl.filter(function(row) {
@@ -330,7 +310,7 @@ Inputs.table(
 :::
 
 ::: column
-## Phylogenetic distribution
+## Species conservation
 
 ```{ojs}
 phylo_filtered = phylo_tbl.filter(function(row) {
@@ -383,10 +363,15 @@ Plot.plot({
 
 (Relative to the NCBI taxonomy)
 
+```{ojs}
+html`<a href="https://rth.dk/resources/crs/cyanobacteria/cons_og.html?candidate=${sel}">View species conservation of the CRS anchoring orthologous gene</a>`
+```
+:::
+:::::
 
+::::: columns
+::: column
 ## Transcriptional Activity
-
-
 
 ```{ojs}
 expr_filtered = expr_tbl.filter(function(row) {
@@ -436,10 +421,5 @@ Plot.plot({
   ]
 })
 ```
-
-
 :::
-:::
-
-
-
+:::::

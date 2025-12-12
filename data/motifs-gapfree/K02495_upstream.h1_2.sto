@@ -1,0 +1,21 @@
+# STOCKHOLM 1.0
+#=GF AU Realignment
+#=GF SQ 15
+
+163908.SAMN02261341.GCA_000332135_02488            GUAGAAUUC--ACAACUA-AACU----AAUU---UG----------------------UGUA----GUCAU-GAA--UUCUAU
+1853259.SAMN05208169.GCA_001858025_00246           GUAGAAUUC--ACAACUA-AACU----AGUU---UG----------------------UGUA----GUCGU-GAA--UUCUAU
+272123.SAMN02232008.Anacy_0231                     GUAGAAUUU--ACAACUA-AACU----AGUU---UG----------------------UGUA----GUCGU-CAA--UUCUAU
+398007.SAMN02471998.GCA_000426905_01577            AUAUAAUUC--AUCACUC--AAU--U-AAUU----U----------------------UGA-a--cAUGAU-GAA--UUAUAU
+46234.SAMN02604187.ANA_C11199                      AUAUAAUUC--AUCACCC--AAU--U-AAUU----U----------------------U---gacaAUGAU-GAA--UUAUAU
+1647413.SAMN03568000.AA650_00570                   AUAUAAUUC--AUCACCC--AAU--U-AACU----U----------------------U---agcaACGAU-GAA--UUAUAU
+643473.SAMN02261254.GCA_000332295_01451            GAAAUAUUA--AUGGCUC-UAC-----AGUU----A----------------------UAAA----AAUAU-UAA--UAGUUA
+1453429.SAMN02641594.UCYN_11790                    AUAAAAUUC--AAA--UGuUAAA--U-AAUA--aCU----------------------UUCA------UUU-GAA--UUUUCU
+103690.SAMD00061094.gene_10495163                  GCAAAAUUCccAUAACUC---------AGUC--g-A----------------------UAGG---uGUUGUuGAA--UUUUGU
+240292.SAMN02598253.Ava_3828                       GCAAAAUUCccAUGACUC---------AGUC--g-A----------------------UAGG---uGUUAUuGAA--UUUUGU
+28072.SAMN02261333.Nos7524_3428                    GCAAAAUUU--AAAA-AC-UUAG--U-AAAA---AU----------------------GAGU-----UUUU-AAA--UUGUGU
+1337936.SAMN02909965.IJ00_01465                    GGGUAAUUG--AUAACUG-UUAA--U-AGAU----A----------------------G-CA----UUUAU-CAAaaUAACCU
+1751286.SAMD00042755.NOS3756_05830                 CGAAAGUUC--AACA-AG-UCAG--U-AGAU--aAA----------------------GGUU------GUU-GAA--UUUUGU
+454136.SAMN05890689.NIES2119_16785                 GGUUAAAUA--AUUA-UU-CAUAgcUgAAUCaucCC----------------------UGAA------AAU-UAU--UUAACU
+1148.SAMD00061113.gene_10499091                    AGAGAAUU--------UG-CAAA-aU-A--------uuuucccagcgaugaaaacaguUGUA-----A-----AA--UUCUCU
+#=GC SS_cons                                       <<<<<<<<<..<<<<-<<.<<__.._.____...__~~~~~~~~~~~~~~~~~~~~~~>>>>....->>>>.>>>..>>>>>>
+//

@@ -1,0 +1,49 @@
+# STOCKHOLM 1.0
+#=GF AU Realignment
+#=GF SQ 43
+
+163908.SAMN02261341.GCA_000332135_03014            UGUAGAGCGAUCGCCUC-----------------------CaU-----A---------------------GCGACG-UUCUACA
+398007.SAMN02471998.GCA_000426905_01083            UGUAGAGCGAUCGCCCC-----------------------CgU-----A---------------------GCGACG-UUCUACA
+1853259.SAMN05208169.GCA_001858025_04098           -GUAGAGCGUUCGCCAC-----------------------CaU-----A---------------------GCGACG-UUCUACA
+551115.SAMN02598476.Aazo_1354                      UGUAGAGCGUUCGCCCC-----------------------CaU-----A---------------------GCAACG-UUCUACA
+46234.SAMN02604187.ANA_C13419                      UGUAGAGCGAUCGCCUC-----------------------CaUag-auA---------------------GCGACG-UUCUACA
+1188.SAMN03450030.FDUTEX481_01915                  UGUAGAGCGAUCGCCUC-----------------------C-------A---------------------ACGACG-UUCUAUA
+224013.SAMN03796038.ACX27_12125                    -GUAGAGCGAUCGCCUC-----------------------C-------G---------------------GCGGCG-UUCUACA
+63737.SAMN02598449.Npun_F5903                      UGUAGAACGAGCGCCUC-----------------------C-------A---------------------ACAACG-UUCUACA
+56107.SAMN02261342.Cylst_5408                      -GUAGAGCGAUCGCCUC-----------------------C-------C---------------------GAUACG-UUCUACA
+99598.SAMN02261328.Cal7507_0082                    UGUGGAGCGAUCGCCCC-----------------------C-------G---------------------GUGACG-UUCUACA
+643473.SAMN02261254.GCA_000332295_04956            UGUGGAGCGAGCGCCCC-----------------------C-------G---------------------GCGACG-UUCUACA
+1479485.SAMN02697214.DA73_0205170                  -GUAGGGCGAUCGCCUC-----------------------C-------G---------------------GUGACG-UUCUACA
+1751286.SAMD00042755.NOS3756_16830                 UGUAGAGCGUUCACCUC-----------------------CaUu---cA---------------------GUGACG-UUCUAUA
+240292.SAMN02598253.Ava_4054                       UGUAGAACGCGCACCUC-----------------------CaA-----A---------------------G--ACG-UUCUACA
+52271.SAMN04536551.GCA_001597855_02436             -GUAGAGCGAUCGCCCC-----------------------CuUu---cG---------------------GCGACG-UUCUAC-
+1541065.SAMN03020304.GCA_000756305_06275           -GGAGAGCGAUCGCCAC-----------------------C-------A---------------------GCGUAG-UUCU-CA
+128403.SAMN02469880.WA1_34895                      -GUAGGGCGAUCGCCUC-----------------------C-------G---------------------GUGACG-UUCUAU-
+240292.SAMN02598253.Ava_3916                       UGUAGAGCGAUCGCCCC-----------------------Cu-cu-ucG---------------------GCGACG-UUCUACA
+1173024.SAMN02597161.GCA_000517105_02808           -GUAGAGCGAUCGCCAC-----------------------CgU----uG---------------------GUGACG-UUCUAU-
+28072.SAMN02261333.Nos7524_5546                    -GUAGAACGCGCACCUC-----------------------C-U----aA---------------------G--ACG-UUCUACA
+56107.SAMN02261342.Cylst_0028                      -GUAGAACGCGCACCUC-----------------------C-------G---------------------GCGAAG-UUCUACA
+1469607.SAMN00203911.GCA_000582685_06197           -GGAGAGCGAUCGCCUC-----------------------C------aG---------------------GC-ACG-UUCUUC-
+1173023.SAMN02441755.GCA_000447295_04079           -AUAGAGCGAGCACCAC-----------------------CaU----cG---------------------GUGACG-UUCUAUA
+1752063.SAMD00042785.FIS3754_24450                 -AUAGAGCGAGCACCUC-----------------------CaU----cG---------------------GUGACG-UUCUAU-
+454136.SAMN05890689.NIES2119_08275                 -GUAGAGCGAUCGCCAC-----------------------CuU----aA---------------------GCGUC--CUCUGC-
+1921803.SAMN05890686.NIES593_07145                 UG--GGGCGAUCGCCUC-----------------------CaG----uA---------------------GCGAAG-CUCCCCA
+43989.SAMN02604312.cce_0559                        UAGAGAGCGAUCGCCUC-----------------------CaU----aA---------------------GCAUCGcUUCU---
+1981054.SAMN06765959.GCA_002110465_02639           UCGAGAGCGAUCGCCAC-----------------------CaU----aA---------------------GCAUCGcUUCU---
+533240.SAMN05182239.A9P98_10230                    -GUAGAGCGUUCGCCAC-----------------------CaUuaaacC---------------------GCGACG-UUCUAUA
+1165094.SAMEA2272692.RINTHH_3070                   UGUAGAACGAGCACCAC-----------------------C-------G---------------------GUGCAG-UUCUACA
+1781255.SAMN05788062.BH720_21525                   -GUGGAGCGAUCGCCCC-----------------------C-------A---------------------GCGUCUcCUCUAC-
+251229.SAMN02261359.Chro_4585                      U---GAGCGAUCGCCCC-----------------------C-------A---------------------GCGAUG-UUC----
+41431.SAMN00000280.PCC8801_1785                    UCGAGAGCGGUCGCCAC-----------------------CaU----aA---------------------GCAUCG-CUUU---
+551115.SAMN02598476.Aazo_3855                      -GUAGAACGUGCGCCUC-----------------------C-------C---------------------CCAUAG-UUUUACA
+65393.SAMN00000286.PCC7424_2120                    UCGAGAGCGUUCGCCCC-----------------------CuU----gA---------------------GCAUCG-CUUU---
+1128427.SAMN02256433.GCA_000380225_02377           -GGAGAACGAUCGCCCC-----------------------CaA----cG---------------------GC-UCG-CUUU-C-
+203124.SAMN02598485.Tery_4136                      UUUAGGGCGAGCGCCUC-----------------------C------gG---------------------GC-A---CUCUAA-
+671072.SAMEA3590990.PL9214650038                   -A--GGGCGAUCGCCGC-----------------------C------gG---------------------GUGACG-UUCCUUA
+32057.SAMN02261256.GCA_000331305_03536             -GUGGGACGGGCGCCAC-----------------------C-------G---------------------GCUUUGgCUCUACA
+317936.SAMN02261332.Nos7107_3365                   UGUAGAGCGAUCGCCCC-----------------------C--------ggcgugug----ccuaaacagGCGGCG-UUCUACA
+1170562.SAMN02261327.Cal6303_0395                  U---GAACGCCCACCACc--------------------cc---auccuG---------------------GUGACG-UUC----
+1188.SAMN03450030.FDUTEX481_02078                  UGUGGAGCGAUCGCCUCcggcugguaaucaauaccaauguC--------uc-----------------ugGCGACG-UUCUACA
+91464.SAMN02436177.S7335_5561                      -GUUGAGCGUUCCCCUC-----------------------C--------gaauucuguugaauaguugccG--ACG-CUCAAC-
+#=GC SS_cons                                       :<<<<<<<<--<<<___......................._._....._~~~~~~~~~~~~~~~~~~~~~>>>->>.>>>>>>:
+//
